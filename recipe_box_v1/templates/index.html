@@ -1,0 +1,11 @@
+<h1>RECIPE BOX</h1>
+    <div style= 'border:1px black solid'>
+        {% for foo in recipes %}
+        <h2>{{foo.title}}</h2>
+        <h3>Written By: {{foo.author.name}}</h3> 
+        <h4>Recipe Description:</h4>
+            <em>{{foo.description}}</em>
+        <h4>Preparation Time Needed: {{foo.time_required}} mins</h4>
+            {{foo.instructions}}
+    </div>
+{% endfor %}
