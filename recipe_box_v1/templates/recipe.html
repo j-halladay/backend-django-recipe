@@ -1,0 +1,18 @@
+<div style="color:red; font-family: Arial; text-align: center">
+    <h1>RECIPE DETAILS</h1>
+</div>
+
+<div style="background-color: red; height: 10px"></div>
+<div style="padding: 20px; border: 5px inset black">
+{% for foo in recipes %}
+       <h2>{{foo.title}}</h2>
+        <h3>Written By: <a href="{%url 'author'%}">{{foo.author.name}}</a></h3> 
+        <div style="padding: 10px 20px 20px 10px">
+        <h3><u>Recipe Description:</u></h3>
+            <em>{{foo.description}}</em>
+        <h4>Preparation Time Needed: {{foo.time_required}} mins</h4>
+            {{foo.instructions}}
+        </div>
+    {% endfor %}
+</div>
+</div>

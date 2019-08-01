@@ -1,11 +1,13 @@
-<h1>RECIPE BOX</h1>
-    <div style= 'border:1px black solid'>
-        {% for foo in recipes %}
-        <h2>{{foo.title}}</h2>
-        <h3>Written By: {{foo.author.name}}</h3> 
-        <h4>Recipe Description:</h4>
-            <em>{{foo.description}}</em>
-        <h4>Preparation Time Needed: {{foo.time_required}} mins</h4>
-            {{foo.instructions}}
+<div style="color:red; font-family: Arial; text-align: center">
+    <h1>RECIPE BOX</h1>
+</div>
+<div style="background-color: red; height: 10px"></div>
+    {% for foo in recipe_titles %}
+    <div style= 'border: 5px black inset; font-family: Arial'>
+        <ol>
+            <li>
+                <h2><a href="recipe/{{foo.recipes}}">{{foo.title}}</a></h2>  
+            </li>
+        </ol>
     </div>
 {% endfor %}
