@@ -1,6 +1,10 @@
 <div style="color:red; font-family: Arial; text-align: center">
     <h1>RECIPE BOX</h1>
 </div>
+{{request.user}} is logged in.
+<a href="logout/">Logout</a>
+
+
 <div style="background-color: red; height: 10px"></div>
     {% for foo in recipe_titles %}
     <div style= 'border: 5px black inset; font-family: Arial'>
@@ -10,4 +14,7 @@
             </li>
         </ol>
     </div>
-{% endfor %}
+    {% endfor %}
+
+Need an Account? Register <a href="signup/">here</a>
+
