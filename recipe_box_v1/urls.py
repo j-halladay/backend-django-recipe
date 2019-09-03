@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
-from recipe_box_v1.views import index, recipe, author, add_recipe, add_author, login_view, signup_view, logout_view
+from recipe_box_v1.views import index, recipe, author, add_recipe, add_author, login_view, signup_view, logout_view, edit, favorite, unfavorite
 
 from recipe_box_v1.models import Author, Recipe
 
@@ -29,10 +29,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='homepage'),
     path('recipe/', recipe),
-    path('author/', views.author, name='author'),
+    path('author/<int:id>', views.author, name='author'),
     path('addauthor/', add_author),
     path('addrecipe/', add_recipe, name='userinput'),
     path('signup/', signup_view, name='signup'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
+    path('edit/<int:id>', edit, name='edit'),
+    path('favorite/<int:id>', favorite, name='favorite'),
+    path('unfavorite/<int:id>', unfavorite, name='unfavorite')
 ]

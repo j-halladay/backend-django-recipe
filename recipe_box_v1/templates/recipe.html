@@ -5,8 +5,18 @@
 <div style="background-color: red; height: 10px"></div>
 <div style="padding: 20px; border: 5px inset black">
 {% for foo in recipes %}
+        {% if user.author == foo.author or user.is_staff %}
+       <h4><a href="/edit/{{foo.id}}">Edit</a></h4>
+       {% endif %}
+       {% if not user.is_anonymous%}
+       {% if not foo in user.author.favorites.all%}
+       <h4><a href="/favorite/{{foo.id}}">Favorite</a></h4>
+       {% else %}
+       <h4><a href="/unfavorite/{{foo.id}}">Unfavorite</a></h4>
+       {% endif %}
+       {% endif %}
        <h2>{{foo.title}}</h2>
-        <h3>Written By: <a href="{%url 'author'%}">{{foo.author.name}}</a></h3> 
+        <h3>Written By: <a href="/author/{{foo.author.id}}">{{foo.author.name}}</a></h3> 
         <div style="padding: 10px 20px 20px 10px">
         <h3><u>Recipe Description:</u></h3>
             <em>{{foo.description}}</em>

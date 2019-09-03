@@ -1,0 +1,10 @@
+<div style="font-family: Arial; text-align: center">
+    <h1 style="color:red">Edit your Recipe!</h1>
+
+    <form style="color: gray" ; action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Submit">
+        <!-- everytime is instantiated, uses secret key. Hidden token on backend and serves to the frontend. -->
+    </form>
+</div>

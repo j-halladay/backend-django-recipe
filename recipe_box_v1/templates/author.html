@@ -4,16 +4,21 @@
 <div style="background-color: red; height: 10px"></div>
 <div style="padding: 20px; border: 5px inset black">
     
-    {% for foo in author|slice:":1" %} 
-        <h2>About {{foo.author.name}}:</h2>    
+    
+        <h2>About {{author.name}}:</h2>    
         <div style="padding: 10px 20px 20px 10px">
-        <em>{{foo.author.bio}}</em>
-        <h2>{{foo.author.name}}'s Recipe List:</h2>
-    {% endfor %}
+        <em>{{author.bio}}</em>
+        <h2>{{author.name}}'s Recipe List:</h2>
+    
   
-    {% for foo in author %} 
+    {% for foo in recipes %} 
         <h2>{{foo.title}}</h2> 
     {% endfor %}
+        <h1>FAVORITES</h1>
+        {% for bar in favorites%}
+        <h2>{{bar.title}}</h2>
+        
+        {% endfor %}
     </div>
 
     </div>
